@@ -55,7 +55,7 @@ export default function Navbar() {
                 link !== "Contact" && activeLink === link ? "active" : ""
               }
             >
-              {link}
+              {link === "Contact" ? "Contact Us" : link}
             </a>
           </li>
         ))}
