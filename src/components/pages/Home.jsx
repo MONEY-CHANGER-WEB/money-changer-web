@@ -5,7 +5,7 @@ export default function Home() {
         <div className="trusted">
           <h2>Trusted Since 200..</h2>
         </div>
-        <h1>Global Money Changer</h1>
+        <h1>Global <span className="highlight">Money Changer</span></h1>
         <p>
           Kami hadir untuk anda dengan layanan penukaran mata uang asing
           terpercaya. Dapatkan nilai tukar kompetitif untuk berbagai mata uang
