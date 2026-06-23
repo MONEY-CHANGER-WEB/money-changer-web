@@ -4,6 +4,7 @@ import { BrokerContext } from "../context/BrokerContext";
 export default function Navbar() {
   const { logo, navLinks } = useContext(BrokerContext);
   const [activeLink, setActiveLink] = useState("Home");
+  const [isOpen, setIsOpen] = useState(false); // Track mobile menu state
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,12 +38,26 @@ export default function Navbar() {
       <div className="logo">
         <img src={logo} alt="Logo" />
       </div>
-      <ul className="nav-links">
+
+      {/* Hamburger Toggle Button */}
+      <button 
+        className={`menu-toggle ${isOpen ? 'open' : ''}`} 
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle navigation"
+      >
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </button>
+
+      {/* Conditional 'open' class for mobile drawer */}
+      <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
         {navLinks.map((link) => (
           <li key={link} className={link === "Contact" ? "contact-btn" : ""}>
             <a
               href={`#${link.toLowerCase()}`}
               onClick={() => {
+                setIsOpen(false); // Close menu when a link is clicked
                 if (link !== "Contact") {
                   window.isScrollingToSection = true;
                   setActiveLink(link);
