@@ -7,74 +7,74 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // Track mobile menu state
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.isScrollingToSection) return;
-      const isAtContact =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 50;
-      if (isAtContact) {
-        setActiveLink("");
-        return;
-      }
-      for (const link of navLinks) {
-        if (link === "Contact") continue;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Jika kita sedang auto-scroll (klik menu), abaikan logic ini
+        if (window.isScrollingToSection) return;
 
-        const element = document.getElementById(link.toLowerCase());
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top >= 0 && rect.top <= 200) {
-            setActiveLink(link);
-            break;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (id === "contact") {
+              setActiveLink("");
+            } else {
+              const formattedId = id.charAt(0).toUpperCase() + id.slice(1);
+              setActiveLink(formattedId);
+            }
           }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+        });
+      },
+      { threshold: 0.6 },
+    );
+    navLinks.forEach((link) => {
+      const element = document.getElementById(link.toLowerCase());
+      if (element) observer.observe(element);
+    });
+    return () => observer.disconnect();
   }, [navLinks]);
 
   return (
-    <nav className="navbar">
-      <div className="logo">
-        <img src={logo} alt="Logo" />
-      </div>
+    <header className="nav-container">
+      <nav className="navbar">
+        <div className="logo">
+          <img src={logo} alt="Logo" />
+        </div>
+        <button
+          className={`menu-toggle ${isOpen ? "open" : ""}`}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation"
+        >
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
 
-      {/* Hamburger Toggle Button */}
-      <button 
-        className={`menu-toggle ${isOpen ? 'open' : ''}`} 
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle navigation"
-      >
-        <span className="bar"></span>
-        <span className="bar"></span>
-        <span className="bar"></span>
-      </button>
-
-      {/* Conditional 'open' class for mobile drawer */}
-      <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-        {navLinks.map((link) => (
-          <li key={link} className={link === "Contact" ? "contact-btn" : ""}>
-            <a
-              href={`#${link.toLowerCase()}`}
-              onClick={() => {
-                setIsOpen(false); // Close menu when a link is clicked
-                if (link !== "Contact") {
-                  window.isScrollingToSection = true;
-                  setActiveLink(link);
-                  setTimeout(() => {
-                    window.isScrollingToSection = false;
-                  }, 800);
+        {/* Conditional 'open' class for mobile drawer */}
+        <ul className={`nav-links ${isOpen ? "open" : ""}`}>
+          {navLinks.map((link) => (
+            <li key={link} className={link === "Contact" ? "contact-btn" : ""}>
+              <a
+                href={`#${link.toLowerCase()}`}
+                onClick={() => {
+                  setIsOpen(false); // Close menu when a link is clicked
+                  if (link !== "Contact") {
+                    window.isScrollingToSection = true;
+                    setActiveLink(link);
+                    setTimeout(() => {
+                      window.isScrollingToSection = false;
+                    }, 800);
+                  }
+                }}
+                className={
+                  link !== "Contact" && activeLink === link ? "active" : ""
                 }
-              }}
-              className={
-                link !== "Contact" && activeLink === link ? "active" : ""
-              }
-            >
-              {link === "Contact" ? "Contact Us" : link}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+              >
+                {link === "Contact" ? "Contact Us" : link}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   );
 }

@@ -5,14 +5,15 @@ import Content from "./components/Content";
 import "./App.css";
 
 const MainLayout = () => {
-  
   return (
-    <div className="app-container">
-      <Navbar/>
-      <Content/>
-    </div>
-  )
-}
+    <main className="app-container">
+      <Navbar />
+      <section className="main-container">
+        <Content />
+      </section>
+    </main>
+  );
+};
 
 export default function App() {
   return (
