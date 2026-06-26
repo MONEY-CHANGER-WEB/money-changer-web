@@ -1,3 +1,6 @@
+import whatsapp from "../../assets/whatsapp.svg"
+import instagram from "../../assets/instagram.svg"
+import tiktok from "../../assets/tiktok.svg"
 export default function Home() {
   return (
     <main className="home-page">
@@ -15,8 +18,9 @@ export default function Home() {
           traveling, atau investasi, kami siap melayani anda.
         </p>
         <div className="social">
-            <button onClick={() => window.location.href = "https://icons8.com/icons/set/whatsapp"}></button>
             <button></button>
+            <button onClick={()=> window.location.href = "https://www.tiktok.com/en/"}></button>
+            <button onClick={()=> window.location.href = "https://www.instagram.com/"}></button>
         </div>
       </section>
 

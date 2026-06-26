@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Footer from "./pages/Footer"
 
 export default function Content() {
   const { activePage } = useContext(BrokerContext);
@@ -21,6 +22,7 @@ export default function Content() {
       <div id="about"><About /></div>
       <div id="services"><Services /></div>
       <div id="contact"><Contact /></div>
+      <div id="footer"><Footer/></div>
     </div>
   );
 
