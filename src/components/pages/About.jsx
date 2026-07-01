@@ -1,11 +1,13 @@
+import ptglobalImg from "../../assets/pt-global.png";
+
 export default function About() {
   return (
     <section className="about-page">
       <section className="about-container1">
         <img
         className="about-img"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBSG6KROJpos7tPYeN6-1Ps60oebn4QRJN_PCvrJJ2DLWht86wAg5YMk&s=10"
-          alt=""
+          src={ptglobalImg}
+          alt="pt-global"
         />
         <div className="box-img"></div>
       </section>
