@@ -1,6 +1,15 @@
 export default function Home() {
   return (
-    <main className="home-page">
+    <main className="home-page grid">
+      <section className="social">
+        <button></button>
+        <button
+          onClick={() => (window.location.href = "https://www.tiktok.com/en/")}
+        ></button>
+        <button
+          onClick={() => (window.location.href = "https://www.instagram.com/")}
+        ></button>
+      </section>
       <section className="home-container1">
         <div className="trusted">
           <h2>Trusted Since 2015</h2>
@@ -14,13 +23,7 @@ export default function Home() {
           utama, proses cepat dan transaksi yang aman. Baik untuk bisnis,
           traveling, atau investasi, kami siap melayani anda.
         </p>
-        <div className="social">
-            <button></button>
-            <button onClick={()=> window.location.href = "https://www.tiktok.com/en/"}></button>
-            <button onClick={()=> window.location.href = "https://www.instagram.com/"}></button>
-        </div>
       </section>
-
       <section className="home-container2">
         <div className="home-img">
           <img
