@@ -1,12 +1,9 @@
-import whatsapp from "../../assets/whatsapp.svg"
-import instagram from "../../assets/instagram.svg"
-import tiktok from "../../assets/tiktok.svg"
 export default function Home() {
   return (
     <main className="home-page">
       <section className="home-container1">
         <div className="trusted">
-          <h2>Trusted Since 200..</h2>
+          <h2>Trusted Since 2015</h2>
         </div>
         <h1>
           Global <span className="highlight">Money Changer</span>

@@ -88,16 +88,17 @@ export default function Contact() {
             ></textarea>
           </div>
 
-          <button type="submit">Send Message</button>
-        </form>
         {status.text && (
-        <p style={{ 
+        <p className="status-contact" style={{ 
+          fontSize: '0.8rem',
           marginTop: '15px', 
           color: status.type === 'success' ? 'green' : status.type === 'error' ? 'red' : 'orange' 
         }}>
           {status.text}
         </p>
       )}
+          <button type="submit">Send Message</button>
+        </form>
 
         <section className="info-global">
           <ul>
@@ -111,7 +112,7 @@ export default function Contact() {
                 />
               </div>
               <h1>
-                Email<span>susi@globalmoneychanger.com</span>
+                Email<span>cs@globalmoneychanger.com</span><span>susi@globalmoneychanger.com</span>
                 <span>global_sla@yahoo.com</span>
               </h1>
             </li>
@@ -125,7 +126,7 @@ export default function Contact() {
                 />
               </div>
               <h1>
-                Phone<span>021-72787588</span>
+                Phone<span>021-72787588 Ext.110</span>
                 <span>081290912664</span>
               </h1>
             </li>
@@ -155,7 +156,7 @@ export default function Contact() {
               </div>
               <h1>
                 Bussiness Hours
-                <span>Monday - Friday: 8:45 AM - 5:00 PM</span>
+                <span>Monday - Friday: 9:00 AM - 5:00 PM</span>
                 <span>Saturday - Sunday: Closed</span>
               </h1>
             </li>
