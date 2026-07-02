@@ -31,8 +31,8 @@
   --light-color: #fff1c8;
   --dark-color: #8e6a00;
   --whatsapp-logo: url("../src/assets/whatsapp.svg");
-  --tiktok-logo: url("../src/assets/tiktok.svg");
-  --instagram-logo: url("../src/assets/instagram.svg");
+  /* --tiktok-logo: url("../src/assets/tiktok.svg"); */
+  /* --instagram-logo: url("../src/assets/instagram.svg"); */
   --footer-color: rgb(137, 137, 137);
 }
 
@@ -121,7 +121,7 @@ section {
   padding: 5rem 0 0 0;
   height: 100vh;
   display: flex;
-  gap: 7rem;
+  gap: 4.5rem;
   align-items: center;
   justify-content: center;
 }
@@ -129,10 +129,15 @@ section {
 .social {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: .8rem;
   height: 100%;
   width: 2.5rem;
   justify-content: center;
+}
+
+.social button svg{
+  width: 32px;
+  height: 32px;
 }
 
 .social button:nth-child(1) {
@@ -140,8 +145,7 @@ section {
   border: none;
   border-radius: 90px;
   cursor: pointer;
-  background: transparent var(--whatsapp-logo) no-repeat center;
-  background-size: 27px;
+  background: none;
   transition: 0.3s ease;
 }
 
@@ -150,8 +154,7 @@ section {
   border: none;
   border-radius: 90px;
   cursor: pointer;
-  background: transparent var(--tiktok-logo) no-repeat center;
-  background-size: 27px;
+  background: none;
   transition: 0.3s ease;
 }
 
@@ -160,8 +163,7 @@ section {
   border: none;
   border-radius: 90px;
   cursor: pointer;
-  background: transparent var(--instagram-logo) no-repeat center;
-  background-size: 27px;
+  background: none;
   transition: 0.3s ease;
 }
 
@@ -692,7 +694,7 @@ section {
   .social {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: .5rem;
   }
 
   .home-container1 {
